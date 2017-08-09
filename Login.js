@@ -2,13 +2,17 @@
 
 var React = require('react');
 
+import Dimensions from 'Dimensions'
+
 const {
   StyleSheet,
   Text,
   View,
   TextInput,
   Image,
-} = require('react-native')
+} = require('react-native');
+
+var { height, width } = Dimensions.get('window')
 
 var createReactClass = require('create-react-class');
 
@@ -17,9 +21,6 @@ var Login = createReactClass({
       return(
         <View style={styles.view}>
           <View style= {styles.container}>
-            <Text>
-              Hi All!
-            </Text>
             <Image 
               style={{
                 width:  100 ,
@@ -28,10 +29,13 @@ var Login = createReactClass({
               resizeMode={"contain"}
               source={require('./react.png')}
             />
+            <Text style= { styles.headerText }>
+              React Native Test
+            </Text>
             <TextInput
               style={{
                 height: 35, 
-                width: 250,
+                width: width * 0.9,
                 marginTop: 50,
                 borderWidth: 1,
                 borderColor: "rgba(0,0,0,1)",
@@ -39,14 +43,11 @@ var Login = createReactClass({
               }}
               placeholder={'Email'}
               placeholderTextColor={"rgba(198,198,204,1)"}
-              onChangeText={(text) => {this.setState({text})}}
-              onSubmitEditing={() => {this.setState({text: ''})}}
-              value={(this.state && this.state.text) || ''}
             />
             <TextInput
               style={{
                 height: 35, 
-                width: 250,
+                width: width * 0.9,
                 borderWidth: 1,
                 borderColor: "rgba(0,0,0,1)",
                 paddingLeft: 10,
@@ -54,9 +55,7 @@ var Login = createReactClass({
               }}
               placeholder={'Password'}
               placeholderTextColor={"rgba(198,198,204,1)"}
-              onChangeText={(text) => {this.setState({text})}}
-              onSubmitEditing={() => {this.setState({text: ''})}}
-              value={(this.state && this.state.text) || ''}
+              secureTextEntry = 'true'
             />
           </View>
         </View>
@@ -76,6 +75,9 @@ const styles = StyleSheet.create({
   logo: {
     height: 500,
     width: 500
+  },
+  headerText: {
+    fontSize: 30
   }
 });
 
