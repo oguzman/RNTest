@@ -15,29 +15,33 @@ var createReactClass = require('create-react-class');
 var Login = createReactClass({
     render() {
       return(
-        <View style={styles.container}>
-          <Text>
-            Hi dude!
-          </Text>
-          <Image 
-            style={{
-              width:  100 ,
-              height:  100 ,
-            }}
-            resizeMode={"contain"}
-            source={require('./react.png')}
-          />
+        <View style={styles.view}>
+          <View style= {styles.container}>
+            <Text>
+              Hi All!
+            </Text>
+            <Image 
+              style={{
+                width:  100 ,
+                height:  100 ,
+              }}
+              resizeMode={"contain"}
+              source={require('./react.png')}
+            />
+          </View>
         </View>
       );
     }
 });
 
 const styles = StyleSheet.create({
-  container: {
+  view: {
     backgroundColor: '#F5FCFF',
     flex: 1,
+  },
+  container: {
     alignItems: 'center',
-    margin: 20
+    paddingTop: 30
   },
   logo: {
     height: 500,
