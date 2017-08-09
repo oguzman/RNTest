@@ -20,8 +20,12 @@ var Login = createReactClass({
             Hi dude!
           </Text>
           <Image 
-            style={ styles.logo }
-            source={{uri:'react.png'}}
+            style={{
+              width:  100 ,
+              height:  100 ,
+            }}
+            resizeMode={"contain"}
+            source={require('./react.png')}
           />
         </View>
       );
