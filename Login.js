@@ -28,6 +28,36 @@ var Login = createReactClass({
               resizeMode={"contain"}
               source={require('./react.png')}
             />
+            <TextInput
+              style={{
+                height: 35, 
+                width: 250,
+                marginTop: 50,
+                borderWidth: 1,
+                borderColor: "rgba(0,0,0,1)",
+                paddingLeft: 10,
+              }}
+              placeholder={'Email'}
+              placeholderTextColor={"rgba(198,198,204,1)"}
+              onChangeText={(text) => {this.setState({text})}}
+              onSubmitEditing={() => {this.setState({text: ''})}}
+              value={(this.state && this.state.text) || ''}
+            />
+            <TextInput
+              style={{
+                height: 35, 
+                width: 250,
+                borderWidth: 1,
+                borderColor: "rgba(0,0,0,1)",
+                paddingLeft: 10,
+                marginTop: 10
+              }}
+              placeholder={'Password'}
+              placeholderTextColor={"rgba(198,198,204,1)"}
+              onChangeText={(text) => {this.setState({text})}}
+              onSubmitEditing={() => {this.setState({text: ''})}}
+              value={(this.state && this.state.text) || ''}
+            />
           </View>
         </View>
       );
@@ -41,7 +71,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    paddingTop: 30
+    padding: 30
   },
   logo: {
     height: 500,

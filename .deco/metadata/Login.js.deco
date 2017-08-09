@@ -16,6 +16,132 @@
 			"type": "string",
 			"name": "ResizeMode",
 			"group": "IMAGE"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 32,
+					"ch": 24
+				},
+				"to": {
+					"line": 32,
+					"ch": 26
+				}
+			},
+			"type": "number",
+			"name": "Height",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 36,
+					"ch": 29
+				},
+				"to": {
+					"line": 36,
+					"ch": 44
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "BorderColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 39,
+					"ch": 27
+				},
+				"to": {
+					"line": 39,
+					"ch": 34
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 40,
+					"ch": 36
+				},
+				"to": {
+					"line": 40,
+					"ch": 57
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 47,
+					"ch": 24
+				},
+				"to": {
+					"line": 47,
+					"ch": 26
+				}
+			},
+			"type": "number",
+			"name": "Height",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 50,
+					"ch": 29
+				},
+				"to": {
+					"line": 50,
+					"ch": 44
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "BorderColor",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 54,
+					"ch": 27
+				},
+				"to": {
+					"line": 54,
+					"ch": 37
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 55,
+					"ch": 36
+				},
+				"to": {
+					"line": 55,
+					"ch": 57
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT 2"
 		}
 	]
 }
