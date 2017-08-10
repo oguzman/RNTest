@@ -10,7 +10,8 @@ const {
   View,
   TextInput,
   Image,
-} = require('react-native');
+  TouchableHighlight,
+} = require('react-native')
 
 var { height, width } = Dimensions.get('window')
 
@@ -22,10 +23,7 @@ var Login = createReactClass({
         <View style={styles.view}>
           <View style= {styles.container}>
             <Image 
-              style={{
-                width:  100 ,
-                height:  100 ,
-              }}
+              style={ styles.imageView }
               resizeMode={"contain"}
               source={require('./react.png')}
             />
@@ -33,30 +31,22 @@ var Login = createReactClass({
               React Native Test
             </Text>
             <TextInput
-              style={{
-                height: 35, 
-                width: width * 0.9,
-                marginTop: 50,
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,1)",
-                paddingLeft: 10,
-              }}
+              style={ styles.inputs }
               placeholder={'Email'}
               placeholderTextColor={"rgba(198,198,204,1)"}
             />
             <TextInput
-              style={{
-                height: 35, 
-                width: width * 0.9,
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,1)",
-                paddingLeft: 10,
-                marginTop: 10
-              }}
+              style={ styles.inputs }
               placeholder={'Password'}
               placeholderTextColor={"rgba(198,198,204,1)"}
-              secureTextEntry = 'true'
+              secureTextEntry = { true }
             />
+            <TouchableHighlight 
+              style = { styles.button }
+              activeOpacity={75 / 100}
+              underlayColor={"rgb(210,210,210)"}>
+              <Text>Login</Text>
+            </TouchableHighlight>
           </View>
         </View>
       );
@@ -77,7 +67,30 @@ const styles = StyleSheet.create({
     width: 500
   },
   headerText: {
-    fontSize: 30
+    fontSize: 30,
+    marginBottom: 40
+  }, 
+  inputs: {
+    height: 35, 
+    width: width * 0.9,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "rgba(86,213,250,1)",
+    paddingLeft: 10,
+    marginTop: 10
+  },
+  imageView: {
+    height: 150,
+    width: 150
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: "rgba(86,213,250, 1)",
+    borderRadius: 5,
+    height: 44,
+    justifyContent: 'center',
+    marginTop: 30,
+    width: width * 0.9
   }
 });
 
