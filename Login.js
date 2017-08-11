@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Dimensions from 'Dimensions'
 import createReactClass from 'create-react-class' 
 import { 
@@ -13,41 +13,52 @@ import {
 var { height, width } = Dimensions.get('window')
 
 
-var Login = createReactClass({
-    render() {
-      return(
-        <View style={styles.view}>
-          <View style= {styles.container}>
-            <Image 
-              style={ styles.imageView }
-              resizeMode={"contain"}
-              source={require('./react.png')}
-            />
-            <Text style= { styles.headerText }>
-              React Native Test
-            </Text>
-            <TextInput
-              style={ styles.inputs }
-              placeholder={'Email'}
-              placeholderTextColor={"rgba(198,198,204,1)"}
-            />
-            <TextInput
-              style={ styles.inputs }
-              placeholder={'Password'}
-              placeholderTextColor={"rgba(198,198,204,1)"}
-              secureTextEntry = { true }
-            />
-            <TouchableHighlight 
-              style = { styles.button }
-              activeOpacity={75 / 100}
-              underlayColor={"rgb(210,210,210)"}>
-              <Text>Login</Text>
-            </TouchableHighlight>
-          </View>
+class Login extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return(
+      <View style={styles.view}>
+        <View style= {styles.container}>
+          <Image
+            style={ styles.imageView }
+            resizeMode={"contain"}
+            source={require('./react.png')}
+          />
+          <Text style= { styles.headerText }>
+            React Native Test
+          </Text>
+          <TextInput
+            onChangeText = { (text) => this.setState({ username: text }) }
+            style={ styles.inputs }
+            placeholder={'Email'}
+            placeholderTextColor={"rgba(198,198,204,1)"}
+          />
+          <TextInput
+            onChangeText = { (text) => this.setState({ password: text })}
+            style={ styles.inputs }
+            placeholder={'Password'}
+            placeholderTextColor={"rgba(198,198,204,1)"}
+            secureTextEntry = { true }
+          />
+          <TouchableHighlight
+            onPress = {this.onLoginPressed.bind(this)}
+            style = { styles.button }
+            activeOpacity={75 / 100}
+            underlayColor={"rgb(210,210,210)"}>
+            <Text>Login</Text>
+          </TouchableHighlight>
         </View>
-      );
-    }
-});
+      </View>
+    );
+  }
+
+  onLoginPressed() {
+    console.log('username: ' + this.state.username)
+    console.log('password: '+ this.state.password)
+  }
+}
 
 const styles = StyleSheet.create({
   view: {

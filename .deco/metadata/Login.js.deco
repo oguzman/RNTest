@@ -3,12 +3,12 @@
 		{
 			"range": {
 				"from": {
-					"line": 22,
-					"ch": 26
+					"line": 25,
+					"ch": 24
 				},
 				"to": {
-					"line": 22,
-					"ch": 35
+					"line": 25,
+					"ch": 33
 				}
 			},
 			"editWith": "dropdown",
@@ -20,28 +20,28 @@
 		{
 			"range": {
 				"from": {
-					"line": 30,
-					"ch": 27
+					"line": 34,
+					"ch": 25
 				},
 				"to": {
-					"line": 30,
+					"line": 34,
+					"ch": 32
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 35,
 					"ch": 34
-				}
-			},
-			"editWith": "inputField",
-			"type": "string",
-			"name": "Placeholder",
-			"group": "TEXT INPUT"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 31,
-					"ch": 36
 				},
 				"to": {
-					"line": 31,
-					"ch": 57
+					"line": 35,
+					"ch": 55
 				}
 			},
 			"editWith": "colorPicker",
@@ -52,44 +52,44 @@
 		{
 			"range": {
 				"from": {
-					"line": 35,
+					"line": 40,
+					"ch": 25
+				},
+				"to": {
+					"line": 40,
+					"ch": 35
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 41,
+					"ch": 34
+				},
+				"to": {
+					"line": 41,
+					"ch": 55
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 47,
 					"ch": 27
 				},
 				"to": {
-					"line": 35,
-					"ch": 37
-				}
-			},
-			"editWith": "inputField",
-			"type": "string",
-			"name": "Placeholder",
-			"group": "TEXT INPUT 2"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 36,
-					"ch": 36
-				},
-				"to": {
-					"line": 36,
-					"ch": 57
-				}
-			},
-			"editWith": "colorPicker",
-			"type": "string",
-			"name": "PlaceholderTextColor",
-			"group": "TEXT INPUT 2"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 41,
+					"line": 47,
 					"ch": 29
-				},
-				"to": {
-					"line": 41,
-					"ch": 31
 				}
 			},
 			"type": "number",
@@ -101,12 +101,12 @@
 		{
 			"range": {
 				"from": {
-					"line": 42,
-					"ch": 29
+					"line": 48,
+					"ch": 27
 				},
 				"to": {
-					"line": 42,
-					"ch": 47
+					"line": 48,
+					"ch": 45
 				}
 			},
 			"editWith": "colorPicker",
@@ -117,11 +117,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 69,
+					"line": 80,
 					"ch": 12
 				},
 				"to": {
-					"line": 69,
+					"line": 80,
 					"ch": 14
 				}
 			},
@@ -132,11 +132,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 73,
+					"line": 84,
 					"ch": 17
 				},
 				"to": {
-					"line": 73,
+					"line": 84,
 					"ch": 37
 				}
 			},
