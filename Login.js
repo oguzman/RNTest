@@ -1,21 +1,17 @@
-'use strict';
-
-var React = require('react');
-
+import React from 'react'
 import Dimensions from 'Dimensions'
-
-const {
+import createReactClass from 'create-react-class' 
+import { 
   StyleSheet,
   Text,
   View,
   TextInput,
   Image,
-  TouchableHighlight,
-} = require('react-native')
+  TouchableHighlight
+  } from 'react-native'
 
 var { height, width } = Dimensions.get('window')
 
-var createReactClass = require('create-react-class');
 
 var Login = createReactClass({
     render() {
