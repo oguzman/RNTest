@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react'
 import Dimensions from 'Dimensions'
 import createReactClass from 'create-react-class' 
@@ -9,7 +10,6 @@ import {
   Image,
   TouchableHighlight,
   ActivityIndicator,
-  ActivityIndicatorIOS,
 } from 'react-native'
 
 import Styles from './styles.js'
@@ -57,9 +57,9 @@ class Login extends Component {
             </Text>
           </TouchableHighlight>
           <ActivityIndicator
-            style={ Styles.loader }
-            animating={true}
-            size={'large'}
+            style = { Styles.loader }
+            animating = { this.state.showProgress }
+            size = {'large'}
           />
         </View>
       </View>
