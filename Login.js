@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Dimensions from 'Dimensions'
 import createReactClass from 'create-react-class' 
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -11,7 +10,6 @@ import {
   TouchableHighlight,
   ActivityIndicator,
 } from 'react-native'
-
 import styles from './styles.js'
 import buffer from 'buffer';
 
