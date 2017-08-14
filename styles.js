@@ -1,9 +1,12 @@
 import {
-    StyleSheet,
-    React 
-  } from 'react-native';
+  StyleSheet,
+  React 
+} from 'react-native';
 import Dimensions from 'Dimensions';
-var { height, width } = Dimensions.get('window')
+var { 
+  height, 
+  width 
+} = Dimensions.get('window')
 
 export default StyleSheet.create({
   generalView: {
