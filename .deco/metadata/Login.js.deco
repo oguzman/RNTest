@@ -3,11 +3,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 25,
+					"line": 32,
 					"ch": 24
 				},
 				"to": {
-					"line": 25,
+					"line": 32,
 					"ch": 33
 				}
 			},
@@ -20,11 +20,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 34,
+					"line": 44,
 					"ch": 25
 				},
 				"to": {
-					"line": 34,
+					"line": 44,
 					"ch": 32
 				}
 			},
@@ -36,11 +36,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 35,
+					"line": 45,
 					"ch": 34
 				},
 				"to": {
-					"line": 35,
+					"line": 45,
 					"ch": 55
 				}
 			},
@@ -52,11 +52,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 40,
+					"line": 50,
 					"ch": 25
 				},
 				"to": {
-					"line": 40,
+					"line": 50,
 					"ch": 35
 				}
 			},
@@ -68,11 +68,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 41,
+					"line": 51,
 					"ch": 34
 				},
 				"to": {
-					"line": 41,
+					"line": 51,
 					"ch": 55
 				}
 			},
@@ -84,11 +84,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 47,
+					"line": 57,
 					"ch": 27
 				},
 				"to": {
-					"line": 47,
+					"line": 57,
 					"ch": 29
 				}
 			},
@@ -101,11 +101,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 48,
+					"line": 58,
 					"ch": 27
 				},
 				"to": {
-					"line": 48,
+					"line": 58,
 					"ch": 45
 				}
 			},
@@ -117,26 +117,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 80,
-					"ch": 12
+					"line": 66,
+					"ch": 20
 				},
 				"to": {
-					"line": 80,
-					"ch": 14
-				}
-			},
-			"type": "number",
-			"name": "Height",
-			"group": "TEXT INPUT 2"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 84,
-					"ch": 17
-				},
-				"to": {
-					"line": 61,
+					"line": 66,
 					"ch": 27
 				}
 			},

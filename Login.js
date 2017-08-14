@@ -12,52 +12,57 @@ import {
   ActivityIndicator,
 } from 'react-native'
 
-import Styles from './styles.js'
-
+import styles from './styles.js'
+import buffer from 'buffer';
 
 class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showProgress: false
+      showProgress: false,
+      username: '',
+      password: ''
     }
   }
   render() {
     return(
-      <View style={Styles.generalView}>
-        <View style= {Styles.generalContainer}>
+      <View style={styles.generalView}>
+        <View style= {styles.generalContainer}>
           <Image
-            style={ Styles.logoLogin }
+            style={ styles.logoLogin }
             resizeMode={"contain"}
             source={require('./react.png')}
           />
-          <Text style= { Styles.loginHeaderText }>
+          <Text style= { styles.loginHeaderText }>
             React Native Test
+          </Text>
+          <Text>
+            Using GitHub API v3
           </Text>
           <TextInput
             onChangeText = { (text) => this.setState({ username: text }) }
-            style={ Styles.blueInputs }
+            style={ styles.blueInputs }
             placeholder={'Email'}
             placeholderTextColor={"rgba(198,198,204,1)"}
           />
           <TextInput
             onChangeText = { (text) => this.setState({ password: text })}
-            style={ Styles.blueInputs }
+            style={ styles.blueInputs }
             placeholder={'Password'}
             placeholderTextColor={"rgba(198,198,204,1)"}
             secureTextEntry = { true }
           />
           <TouchableHighlight
             onPress = {this.onLoginPressed.bind(this)}
-            style = { Styles.blueButton }
+            style = { styles.blueButton }
             activeOpacity={75 / 100}
             underlayColor={"rgb(210,210,210)"}>
-            <Text style= { Styles.whiteText } >
+            <Text style= { styles.whiteText } >
               Login
             </Text>
           </TouchableHighlight>
           <ActivityIndicator
-            style = { Styles.loader }
+            style = { styles.loader }
             animating = { this.state.showProgress }
             size = {'large'}
           />
@@ -67,11 +72,24 @@ class Login extends Component {
   }
 
   onLoginPressed() {
-    console.log('username: ' + this.state.username)
-    console.log('password: '+ this.state.password)
     this.setState ({
       showProgress: true
     });
+    var buf = new buffer.Buffer(this.state.username + ':' + this.state.password);
+    var encondeAuth = buf.toString('base64');
+    
+    fetch('https://api.github.com/user', {
+      headers: {
+        'Authorization': 'Basic ' + encondeAuth
+      }
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((results) => {
+      console.log(results);
+      this.setState({ showProgress: false })
+    })
   }
 }
 
