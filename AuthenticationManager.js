@@ -1,7 +1,7 @@
 import buffer from 'buffer';
 class AuthenticationManager {
   login(credentials, callback) {
-    var buf = new buffer.Buffer(this.state.username + ':' + this.state.password);
+    var buf = new buffer.Buffer(credentials.username + ':' + credentials.password);
     var encondeAuth = buf.toString('base64');
     
     fetch('https://api.github.com/user', {
@@ -10,6 +10,7 @@ class AuthenticationManager {
       }
     })
     .then((response) => {
+      console.log(response);
       if(response.status >= 200 && response.status < 300){
         return response;
       }
@@ -18,19 +19,15 @@ class AuthenticationManager {
         unknownError: response.status != 401
       }
     })
-    .then((response) => {
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((results) => {
+      console.log(results);
       return callback({ success: true });
     })
-    .catch((err) => {
-      return cb(err);
-    })
-    .finally(() => {
-      this.setState({ showProgress: false })
+    .catch((error) => {
+      return callback(error);
     })
   }
 }
 
-module.export = new AuthenticationManager();
+module.exports = new AuthenticationManager();

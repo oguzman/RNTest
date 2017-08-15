@@ -10,9 +10,8 @@ import {
   TouchableHighlight,
   ActivityIndicator,
 } from 'react-native'
-import styles from './styles.js'
-import buffer from 'buffer';
-
+import styles from './styles'
+import authentication from './AuthenticationManager'
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -85,36 +84,15 @@ class Login extends Component {
     this.setState ({
       showProgress: true
     });
-    var buf = new buffer.Buffer(this.state.username + ':' + this.state.password);
-    var encondeAuth = buf.toString('base64');
-    
-    fetch('https://api.github.com/user', {
-      headers: {
-        'Authorization': 'Basic ' + encondeAuth
-      }
-    })
-    .then((response) => {
-      if(response.status >= 200 && response.status < 300){
-        return response;
-      }
-      throw {
-        badCredentials: response.status == 401,
-        unknownError: response.status != 401
-      }
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((results) => {
-      console.log(results);
-      this.setState({ success: true })
-    })
-    .catch((err) => {
-      this.setState(err);
-    })
-    .finally(() => {
-      this.setState({ showProgress: false })
-    })
+    authentication.login({
+      username: this.state.username,
+      password: this.state.password
+    },(results) => {
+      this.setState(Object.assign ({
+        showProgress: false
+      },
+        results));
+    });
   }
 }
 
