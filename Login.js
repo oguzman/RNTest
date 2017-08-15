@@ -23,6 +23,17 @@ class Login extends Component {
     }
   }
   render() {
+    var errorControl = <View />;
+    if (!this.state.success && this.state.badCredentials) {
+      errorControl = <Text style={ styles.errorMessage }>
+          User name or password are wrong.
+        </Text>;
+    }
+    if (!this.state.success && this.state.unknownError) {
+      errorControl = <Text style={ styles.errorMessage }>
+          We experienced an unknow error.
+        </Text>;
+    }
     return(
       <View style={styles.generalView}>
         <View style= {styles.generalContainer}>
@@ -59,6 +70,7 @@ class Login extends Component {
               Login
             </Text>
           </TouchableHighlight>
+          { errorControl }
           <ActivityIndicator
             style = { styles.loader }
             animating = { this.state.showProgress }
@@ -95,6 +107,7 @@ class Login extends Component {
     })
     .then((results) => {
       console.log(results);
+      this.setState({ success: true })
     })
     .catch((err) => {
       this.setState(err);

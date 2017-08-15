@@ -52,5 +52,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     marginTop: height / 2
+  },
+  errorMessage: {
+    color: 'red',
+    paddingTop: 15
   }
 });
