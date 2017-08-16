@@ -21,7 +21,6 @@ class AuthenticationManager {
     })
     .then((response) => response.json())
     .then((results) => {
-      console.log(results);
       return callback({ success: true });
     })
     .catch((error) => {

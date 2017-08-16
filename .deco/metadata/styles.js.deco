@@ -3,11 +3,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 24,
+					"line": 22,
 					"ch": 12
 				},
 				"to": {
-					"line": 24,
+					"line": 22,
 					"ch": 14
 				}
 			},
@@ -18,11 +18,11 @@
 		{
 			"range": {
 				"from": {
-					"line": 28,
+					"line": 26,
 					"ch": 17
 				},
 				"to": {
-					"line": 28,
+					"line": 26,
 					"ch": 37
 				}
 			},

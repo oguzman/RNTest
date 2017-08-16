@@ -3,12 +3,12 @@
 		{
 			"range": {
 				"from": {
-					"line": 40,
-					"ch": 24
+					"line": 39,
+					"ch": 22
 				},
 				"to": {
-					"line": 40,
-					"ch": 33
+					"line": 39,
+					"ch": 31
 				}
 			},
 			"editWith": "dropdown",
@@ -20,28 +20,28 @@
 		{
 			"range": {
 				"from": {
-					"line": 52,
-					"ch": 25
+					"line": 51,
+					"ch": 23
 				},
 				"to": {
+					"line": 51,
+					"ch": 30
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
 					"line": 52,
 					"ch": 32
-				}
-			},
-			"editWith": "inputField",
-			"type": "string",
-			"name": "Placeholder",
-			"group": "TEXT INPUT"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 53,
-					"ch": 34
 				},
 				"to": {
-					"line": 53,
-					"ch": 55
+					"line": 52,
+					"ch": 53
 				}
 			},
 			"editWith": "colorPicker",
@@ -52,44 +52,44 @@
 		{
 			"range": {
 				"from": {
+					"line": 57,
+					"ch": 23
+				},
+				"to": {
+					"line": 57,
+					"ch": 33
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
 					"line": 58,
+					"ch": 32
+				},
+				"to": {
+					"line": 58,
+					"ch": 53
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT 2"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 64,
 					"ch": 25
 				},
 				"to": {
-					"line": 58,
-					"ch": 35
-				}
-			},
-			"editWith": "inputField",
-			"type": "string",
-			"name": "Placeholder",
-			"group": "TEXT INPUT 2"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 59,
-					"ch": 34
-				},
-				"to": {
-					"line": 59,
-					"ch": 55
-				}
-			},
-			"editWith": "colorPicker",
-			"type": "string",
-			"name": "PlaceholderTextColor",
-			"group": "TEXT INPUT 2"
-		},
-		{
-			"range": {
-				"from": {
-					"line": 65,
+					"line": 64,
 					"ch": 27
-				},
-				"to": {
-					"line": 65,
-					"ch": 29
 				}
 			},
 			"type": "number",
@@ -101,12 +101,12 @@
 		{
 			"range": {
 				"from": {
-					"line": 66,
-					"ch": 27
+					"line": 65,
+					"ch": 25
 				},
 				"to": {
-					"line": 66,
-					"ch": 45
+					"line": 65,
+					"ch": 43
 				}
 			},
 			"editWith": "colorPicker",
@@ -117,12 +117,12 @@
 		{
 			"range": {
 				"from": {
-					"line": 75,
-					"ch": 20
+					"line": 74,
+					"ch": 18
 				},
 				"to": {
-					"line": 75,
-					"ch": 27
+					"line": 74,
+					"ch": 25
 				}
 			},
 			"editWith": "colorPicker",
