@@ -12,8 +12,6 @@ export default StyleSheet.create({
   generalView: {
     backgroundColor: '#F5FCFF',
     flex: 1,
-  },
-  generalContainer: {
     alignItems: 'center',
     padding: 30
   },

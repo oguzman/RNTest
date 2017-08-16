@@ -35,47 +35,45 @@ class Login extends Component {
     }
     return(
       <View style={styles.generalView}>
-        <View style= {styles.generalContainer}>
-          <Image
-            style={ styles.logoLogin }
-            resizeMode={"contain"}
-            source={require('./react.png')}
-          />
-          <Text style= { styles.loginHeaderText }>
-            React Native Test
+        <Image
+          style={ styles.logoLogin }
+          resizeMode={"contain"}
+          source={require('./react.png')}
+        />
+        <Text style= { styles.loginHeaderText }>
+          React Native Test
+        </Text>
+        <Text>
+          Using GitHub API v3
+        </Text>
+        <TextInput
+          onChangeText = { (text) => this.setState({ username: text }) }
+          style={ styles.blueInputs }
+          placeholder={'Email'}
+          placeholderTextColor={"rgba(198,198,204,1)"}
+        />
+        <TextInput
+          onChangeText = { (text) => this.setState({ password: text })}
+          style={ styles.blueInputs }
+          placeholder={'Password'}
+          placeholderTextColor={"rgba(198,198,204,1)"}
+          secureTextEntry = { true }
+        />
+        <TouchableHighlight
+          onPress = {this.onLoginPressed.bind(this)}
+          style = { styles.blueButton }
+          activeOpacity={75 / 100}
+          underlayColor={"rgb(210,210,210)"}>
+          <Text style= { styles.whiteText } >
+            Login
           </Text>
-          <Text>
-            Using GitHub API v3
-          </Text>
-          <TextInput
-            onChangeText = { (text) => this.setState({ username: text }) }
-            style={ styles.blueInputs }
-            placeholder={'Email'}
-            placeholderTextColor={"rgba(198,198,204,1)"}
-          />
-          <TextInput
-            onChangeText = { (text) => this.setState({ password: text })}
-            style={ styles.blueInputs }
-            placeholder={'Password'}
-            placeholderTextColor={"rgba(198,198,204,1)"}
-            secureTextEntry = { true }
-          />
-          <TouchableHighlight
-            onPress = {this.onLoginPressed.bind(this)}
-            style = { styles.blueButton }
-            activeOpacity={75 / 100}
-            underlayColor={"rgb(210,210,210)"}>
-            <Text style= { styles.whiteText } >
-              Login
-            </Text>
-          </TouchableHighlight>
-          { errorControl }
-          <ActivityIndicator
-            style = { styles.loader }
-            animating = { this.state.showProgress }
-            size = {'large'}
-          />
-        </View>
+        </TouchableHighlight>
+        { errorControl }
+        <ActivityIndicator
+          style = { styles.loader }
+          animating = { this.state.showProgress }
+          size = {'large'}
+        />
       </View>
     );
   }
@@ -92,6 +90,10 @@ class Login extends Component {
         showProgress: false
       },
         results));
+      
+      if(results.success && this.props.onLogin) {
+        this.props.onLogin();
+      }
     });
   }
 }
