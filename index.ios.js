@@ -13,7 +13,7 @@ import {
 import {
   AppRegistry,
 } from 'react-native';
-import Login from './Login.js';
+import Login from './Login';
 import styles from './styles'
 
 var RNTest = CreateClass ({

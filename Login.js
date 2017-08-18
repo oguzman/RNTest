@@ -1,7 +1,5 @@
 'use strict';
 import React, { Component } from 'react'
-import Dimensions from 'Dimensions'
-import createReactClass from 'create-react-class' 
 import {
   Text,
   View,
