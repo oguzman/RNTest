@@ -1,4 +1,6 @@
 import buffer from 'buffer';
+import { AsyncStorage } from 'react-native';
+
 class AuthenticationManager {
   login(credentials, callback) {
     var buf = new buffer.Buffer(credentials.username + ':' + credentials.password);
@@ -21,7 +23,16 @@ class AuthenticationManager {
     })
     .then((response) => response.json())
     .then((results) => {
-      return callback({ success: true });
+      AsyncStorage.multiSet([
+        ['auth', encondeAuth],
+        ['user', JSON.stringify(results)]
+      ], (error) => {
+        if(error) {
+          throw error;
+        }
+        debugger
+        return callback({ success: true });
+      })
     })
     .catch((error) => {
       return callback(error);

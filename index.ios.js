@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import createClass from 'create-react-class'
+import CreateClass from 'create-react-class';
 import {
   View,
   Text
@@ -15,7 +15,8 @@ import {
 } from 'react-native';
 import Login from './Login.js';
 import styles from './styles'
-var RNTest = createClass ({
+
+var RNTest = CreateClass ({
   render: function() {
     if(this.state.isLoggedIn) {
       return(
@@ -31,10 +32,10 @@ var RNTest = createClass ({
       );
     }
   },
-  onLogin: function() {
+  onLogin() {
     this.setState({ isLoggedIn: true });
   },
-  getInitialState: function() {
+  getInitialState() {
     return {
       isLoggedIn: false
     }
