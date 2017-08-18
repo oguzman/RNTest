@@ -30,7 +30,6 @@ class AuthenticationManager {
         if(error) {
           throw error;
         }
-        debugger
         return callback({ success: true });
       })
     })
