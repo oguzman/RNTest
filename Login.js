@@ -1,7 +1,5 @@
 'use strict';
 import React, { Component } from 'react'
-import Dimensions from 'Dimensions'
-import createReactClass from 'create-react-class' 
 import {
   Text,
   View,
@@ -12,6 +10,7 @@ import {
 } from 'react-native'
 import styles from './styles'
 import authentication from './AuthenticationManager'
+
 class Login extends Component {
   constructor(props) {
     super(props)
