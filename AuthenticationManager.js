@@ -1,8 +1,27 @@
 import buffer from 'buffer';
 import { AsyncStorage } from 'react-native';
 import React from 'react';
+const authKey = 'auth';
+const userKey = 'user';
 
 class AuthenticationManager {
+  getAuthInfo(callback){
+    AsyncStorage.multiGet([authKey, userKey], (error,result) => {
+      if(error) {
+        return callback(error);
+      }
+      if(result) {
+        var authInfo = {
+          header: {
+            Authorization: 'Basic ' + result[0][1]
+          },
+          user: JSON.parse(result[1][1])
+        }
+        console.log(callback)
+        return callback(null, authInfo)
+      }
+    })
+  }
   login(credentials, callback) {
     var buf = new buffer.Buffer(credentials.username + ':' + credentials.password);
     var encondeAuth = buf.toString('base64');
@@ -25,8 +44,8 @@ class AuthenticationManager {
     .then((response) => response.json())
     .then((results) => {
       AsyncStorage.multiSet([
-        ['auth', encondeAuth],
-        ['user', JSON.stringify(results)]
+        [authKey, encondeAuth],
+        [userKey, JSON.stringify(results)]
       ], (error) => {
         if(error) {
           throw error;
@@ -38,6 +57,7 @@ class AuthenticationManager {
             console.log(result)
           }
         })
+        this.getAuthInfo()
         return callback({ success: true });
       })
     })
