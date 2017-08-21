@@ -7,6 +7,7 @@ import {
 	TabBarIOS
 } from 'react-native';
 import styles from './styles'
+import Feed from './Feed'
 
 class AppContainer extends Component {
 	constructor(props) {
@@ -24,11 +25,7 @@ class AppContainer extends Component {
       			onPress = {() => this.setState({ selectedTab: 'favorites' })}
       			systemIcon = 'favorites'
       	>
-      	<View style = { styles.centerContent }>
-      		<Text style = { styles.headerText }>
-      			Favorites
-      		</Text>
-      	</View>
+      	 <Feed />
       	</TabBarIOS.Item>
       	<TabBarIOS.Item
       			title = 'Most Viewed'
