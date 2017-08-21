@@ -5,7 +5,7 @@ const authKey = 'auth';
 const userKey = 'user';
 
 class AuthenticationManager {
-  getAuthInfo(callback){
+  getAuthInfo(callback = null){
     AsyncStorage.multiGet([authKey, userKey], (error,result) => {
       if(error) {
         return callback(error);
@@ -17,7 +17,6 @@ class AuthenticationManager {
           },
           user: JSON.parse(result[1][1])
         }
-        console.log(callback)
         return callback(null, authInfo)
       }
     })

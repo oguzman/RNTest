@@ -39,7 +39,7 @@ class Login extends Component {
           resizeMode = { "contain" }
           source = { require('./react.png') }
         />
-        <Text style = { styles.loginHeaderText }>
+        <Text style = { styles.headerText }>
           React Native Test
         </Text>
         <Text>

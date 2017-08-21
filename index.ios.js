@@ -16,6 +16,7 @@ import {
 import Login from './Login';
 import styles from './styles'
 import AuthenticationManager from './AuthenticationManager'
+import AppContainer from './AppContainer'
 
 class RNTest extends Component {
   componentDidMount() {
@@ -28,11 +29,10 @@ class RNTest extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       isLoggedIn: false,
-      checkingAuth: false
+      checkingAuth: true
     };
-    console.log(this.state)
   }
   render() {
     if(this.state.checkingAuth) {
@@ -49,11 +49,7 @@ class RNTest extends Component {
     }
     if(this.state.isLoggedIn) {
       return(
-        <View style = { styles.generalView } >
-          <Text style = { styles.loginHeaderText } >
-            You are logged!
-          </Text>
-        </View>
+        <AppContainer />
       );
     } else {
       return (
