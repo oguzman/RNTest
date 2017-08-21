@@ -12,7 +12,7 @@ import {
 import {
   AppRegistry,
 } from 'react-native';
-import Login from './Login.js';
+import Login from './Login';
 import styles from './styles'
 
 class RNTest extends Component {
@@ -24,15 +24,15 @@ class RNTest extends Component {
   render() {
     if(this.state.isLoggedIn) {
       return(
-        <View style = { styles.generalView }>
-          <Text style = { styles.loginHeaderText }>
+        <View style = { styles.generalView } >
+          <Text style = { styles.loginHeaderText } >
             You are logged!
           </Text>
         </View>
       );
     } else {
       return (
-        <Login onLogin = { () => { this.onLogin() }}/>
+        <Login onLogin = {() => { this.onLogin() }} />
       );
     }
   }

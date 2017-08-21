@@ -23,23 +23,23 @@ class Login extends Component {
   render() {
     var errorControl = <View />;
     if (!this.state.success && this.state.badCredentials) {
-      errorControl = <Text style={ styles.errorMessage }>
+      errorControl = <Text style = { styles.errorMessage } >
           User name or password are wrong.
         </Text>;
     }
     if (!this.state.success && this.state.unknownError) {
-      errorControl = <Text style={ styles.errorMessage }>
+      errorControl = <Text style = { styles.errorMessage } >
           We experienced an unknow error.
         </Text>;
     }
     return(
-      <View style={styles.generalView}>
+      <View style = { styles.generalView } >
         <Image
-          style={ styles.logoLogin }
-          resizeMode={"contain"}
-          source={require('./react.png')}
+          style = { styles.logoLogin }
+          resizeMode = { "contain" }
+          source = { require('./react.png') }
         />
-        <Text style= { styles.loginHeaderText }>
+        <Text style = { styles.loginHeaderText }>
           React Native Test
         </Text>
         <Text>
@@ -47,23 +47,23 @@ class Login extends Component {
         </Text>
         <TextInput
           onChangeText = { (text) => this.setState({ username: text }) }
-          style={ styles.blueInputs }
-          placeholder={'Email'}
-          placeholderTextColor={"rgba(198,198,204,1)"}
+          style = { styles.blueInputs }
+          placeholder = { 'Email' }
+          placeholderTextColor = { "rgba(198,198,204,1)" }
         />
         <TextInput
-          onChangeText = { (text) => this.setState({ password: text })}
-          style={ styles.blueInputs }
-          placeholder={'Password'}
-          placeholderTextColor={"rgba(198,198,204,1)"}
+          onChangeText = { (text) => this.setState({ password: text }) }
+          style = { styles.blueInputs }
+          placeholder = { 'Password' }
+          placeholderTextColor = { "rgba(198,198,204,1)" }
           secureTextEntry = { true }
         />
         <TouchableHighlight
-          onPress = {this.onLoginPressed.bind(this)}
+          onPress = { this.onLoginPressed.bind(this) }
           style = { styles.blueButton }
-          activeOpacity={75 / 100}
-          underlayColor={"rgb(210,210,210)"}>
-          <Text style= { styles.whiteText } >
+          activeOpacity = { 75 / 100 }
+          underlayColor = { "rgb(210,210,210)" } >
+          <Text style = { styles.whiteText } >
             Login
           </Text>
         </TouchableHighlight>
@@ -71,7 +71,7 @@ class Login extends Component {
         <ActivityIndicator
           style = { styles.loader }
           animating = { this.state.showProgress }
-          size = {'large'}
+          size = { 'large' }
           color = 'black'
         />
       </View>
