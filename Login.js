@@ -72,6 +72,7 @@ class Login extends Component {
           style = { styles.loader }
           animating = { this.state.showProgress }
           size = {'large'}
+          color = 'black'
         />
       </View>
     );
