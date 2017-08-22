@@ -13,7 +13,14 @@ export default StyleSheet.create({
     backgroundColor: '#F5FCFF',
     flex: 1,
     alignItems: 'center',
-    padding: 30
+    justifyContent: 'flex-start',
+    paddingTop: 20
+  },
+  listViewBackground: {
+    backgroundColor: '#F5FCFF',
+    flex: 1,
+    paddingTop: 20,
+    paddingBottom: 50
   },
   centerContent: {
     alignItems: 'center',
@@ -59,5 +66,13 @@ export default StyleSheet.create({
   errorMessage: {
     color: 'red',
     paddingTop: 15
+  },
+  tableCell: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10,
+    alignItems: 'center',
+    borderColor: '#D7D7D7',
+    borderBottomWidth: 1,
   }
 });

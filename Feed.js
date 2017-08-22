@@ -4,9 +4,13 @@ import {
 	ListView,
 	Text,
 	Image,
-	View
-} from 'react-native'
-import styles from './styles'
+	View,
+	ActivityIndicator
+} from 'react-native';
+import styles from './styles';
+import AuthenticationManager from './AuthenticationManager';
+import Moment from 'moment';
+const urlBase = 'https://api.github.com/users/';
 
 class Feed extends Component {
 	constructor(props) {
@@ -15,32 +19,75 @@ class Feed extends Component {
 			rowHasChanged: (r1, r2) => r1 !== r2
 		})
 		this.state = {
-			dataSource: ds.cloneWithRows(['a', 'b', 'c'])
+			dataSource: ds,
+			showProgress: true
 		}
 	}
-	renderRow(rowData) {
-		return <Text style = {{
-				color: 'black',
-				backgroundColor: '#fff'
-			}}
-		>
-			{ rowData }
-		</Text>
+
+	componentDidMount() {
+		this.fetchFeed();
 	}
-	render(){
-		return(
-			<View 
-				style = {{
-					flex: 1,
-					justifyContent: 'flex-start',
-				}}
+
+	fetchFeed() {
+		AuthenticationManager.getAuthInfo((error, result) => {
+			var url = urlBase + result.user.login + '/received_events';
+			fetch(url, {
+				headers: result.header
+			})
+			.then((response) => response.json())
+			.then((responseData) => {
+				this.setState({
+					dataSource: this.state.dataSource.cloneWithRows(responseData),
+					showProgress: false
+				});
+			})
+		})
+	}
+
+	renderRow(rowData) {
+		return( 
+			<View
+				style = { styles.tableCell }
 			>
-				<ListView
-					dataSource = { this.state.dataSource }
-					renderRow = { this.renderRow }
-				/>
+			<Image
+				source = {{ uri: rowData.actor.avatar_url }}
+				style = {{
+					height: 36,
+					width: 36,
+					borderRadius: 18
+				}}
+			/>
+			<Text style = {{ marginLeft: 10 }}>
+				{ Moment(rowData.created_at).fromNow() + '\n' +
+				rowData.repo.name + '\n' +
+				rowData.type }
+			</Text>
 			</View>
 		);
+	}
+
+	render(){
+		if(this.state.showProgress) {
+			return(
+				<View style = { styles.generalView } >
+					<ActivityIndicator
+						animating = { true }
+						color = 'black'
+						size = 'large'
+						style = { styles.loader }
+					/>
+				</View>
+			);
+		} else {
+			return(
+				<View style = { styles.listViewBackground } >
+					<ListView
+						dataSource = { this.state.dataSource }
+						renderRow = { this.renderRow }
+					/>
+				</View>
+			);
+		}
 	}
 }
 
