@@ -4,7 +4,8 @@ import {
 	ListView,
 	Text,
 	Image,
-	View
+	View,
+	ActivityIndicator
 } from 'react-native';
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
@@ -17,7 +18,8 @@ class Feed extends Component {
 			rowHasChanged: (r1, r2) => r1 !== r2
 		})
 		this.state = {
-			dataSource: ds
+			dataSource: ds,
+			showProgress: true
 		}
 	}
 
@@ -34,7 +36,8 @@ class Feed extends Component {
 			.then((response) => response.json())
 			.then((responseData) => {
 				this.setState({
-					dataSource: this.state.dataSource.cloneWithRows(responseData)
+					dataSource: this.state.dataSource.cloneWithRows(responseData),
+					showProgress: false
 				});
 			})
 		})
@@ -55,19 +58,26 @@ class Feed extends Component {
 	}
 
 	render(){
-		return(
-			<View 
-				style = {{
-					flex: 1,
-					justifyContent: 'flex-start',
-				}}
-			>
-				<ListView
-					dataSource = { this.state.dataSource }
-					renderRow = { this.renderRow }
-				/>
-			</View>
-		);
+		if(this.state.showProgress) {
+			return(
+				<View style = { styles.generalView } >
+					<ActivityIndicator
+						color = 'black'
+						size = 'large'
+						style = { styles.loader }
+					/>
+				</View>
+			);
+		} else {
+			return(
+				<View style = { styles.generalView } >
+						<ListView
+							dataSource = { this.state.dataSource }
+							renderRow = { this.renderRow }
+						/>
+				</View>
+			);
+		}
 	}
 }
 

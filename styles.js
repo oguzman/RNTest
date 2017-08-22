@@ -13,7 +13,8 @@ export default StyleSheet.create({
     backgroundColor: '#F5FCFF',
     flex: 1,
     alignItems: 'center',
-    padding: 30
+    justifyContent: 'flex-start',
+    paddingTop: 20
   },
   centerContent: {
     alignItems: 'center',
