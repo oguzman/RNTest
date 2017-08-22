@@ -5,7 +5,8 @@ import {
 	Text,
 	Image,
 	View,
-	ActivityIndicator
+	ActivityIndicator,
+	TouchableHighlight
 } from 'react-native';
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
@@ -22,6 +23,10 @@ class Feed extends Component {
 			dataSource: ds,
 			showProgress: true
 		}
+	}
+
+	pressRow(data) {
+		console.log(data);
 	}
 
 	componentDidMount() {
@@ -45,24 +50,29 @@ class Feed extends Component {
 	}
 
 	renderRow(rowData) {
-		return( 
-			<View
-				style = { styles.tableCell }
+		return(
+			<TouchableHighlight
+				onPress = { () => this.pressRow(rowData) }
+				underlayColor = '#ddd'
 			>
-			<Image
-				source = {{ uri: rowData.actor.avatar_url }}
-				style = {{
-					height: 36,
-					width: 36,
-					borderRadius: 18
-				}}
-			/>
-			<Text style = {{ marginLeft: 10 }}>
-				{ Moment(rowData.created_at).fromNow() + '\n' +
-				rowData.repo.name + '\n' +
-				rowData.type }
-			</Text>
-			</View>
+				<View
+					style = { styles.tableCell }
+				>
+					<Image
+						source = {{ uri: rowData.actor.avatar_url }}
+						style = {{
+							height: 36,
+							width: 36,
+							borderRadius: 18
+						}}
+					/>
+					<Text style = {{ marginLeft: 10 }}>
+						{ Moment(rowData.created_at).fromNow() + '\n' +
+						rowData.repo.name + '\n' +
+						rowData.type }
+					</Text>
+				</View>
+			</TouchableHighlight>
 		);
 	}
 
@@ -83,7 +93,7 @@ class Feed extends Component {
 				<View style = { styles.listViewBackground } >
 					<ListView
 						dataSource = { this.state.dataSource }
-						renderRow = { this.renderRow }
+						renderRow = { (rowData) => this.renderRow(rowData) }
 					/>
 				</View>
 			);
