@@ -45,15 +45,23 @@ class Feed extends Component {
 
 	renderRow(rowData) {
 		return( 
-			<Text style = {{
-					color: 'black',
-					backgroundColor: '#fff',
-					alignSelf: 'center'
-				}}
+			<View
+				style = { styles.tableCell }
 			>
-				id: { rowData.id + ', ' + rowData.actor.login + '\n'}
-				{ rowData.type + ', ' + rowData.repo.name }
+			<Image
+				source = {{ uri: rowData.actor.avatar_url }}
+				style = {{
+					height: 36,
+					width: 36,
+					borderRadius: 18
+				}}
+			/>
+			<Text style = {{ marginLeft: 10 }}>
+				{ rowData.actor.login + '\n' +
+				'Repository: ' + rowData.repo.name + '\n' +
+				'Event: ' + rowData.type }
 			</Text>
+			</View>
 		);
 	}
 
@@ -62,6 +70,7 @@ class Feed extends Component {
 			return(
 				<View style = { styles.generalView } >
 					<ActivityIndicator
+						animating = { true }
 						color = 'black'
 						size = 'large'
 						style = { styles.loader }
@@ -70,11 +79,11 @@ class Feed extends Component {
 			);
 		} else {
 			return(
-				<View style = { styles.generalView } >
-						<ListView
-							dataSource = { this.state.dataSource }
-							renderRow = { this.renderRow }
-						/>
+				<View style = { styles.listViewBackground } >
+					<ListView
+						dataSource = { this.state.dataSource }
+						renderRow = { this.renderRow }
+					/>
 				</View>
 			);
 		}

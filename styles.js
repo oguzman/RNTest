@@ -16,6 +16,11 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 20
   },
+  listViewBackground: {
+    backgroundColor: '#F5FCFF',
+    flex: 1,
+    paddingTop: 20
+  },
   centerContent: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -60,5 +65,13 @@ export default StyleSheet.create({
   errorMessage: {
     color: 'red',
     paddingTop: 15
+  },
+  tableCell: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10,
+    alignItems: 'center',
+    borderColor: '#D7D7D7',
+    borderBottomWidth: 1,
   }
 });
