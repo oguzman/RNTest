@@ -15,7 +15,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 30
   },
-  loginHeaderText: {
+  centerContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
+  },
+  headerText: {
     fontSize: 30,
     marginBottom: 40
   }, 
