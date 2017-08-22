@@ -19,7 +19,8 @@ export default StyleSheet.create({
   listViewBackground: {
     backgroundColor: '#F5FCFF',
     flex: 1,
-    paddingTop: 20
+    paddingTop: 20,
+    paddingBottom: 50
   },
   centerContent: {
     alignItems: 'center',
