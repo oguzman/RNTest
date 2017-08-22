@@ -7,6 +7,7 @@ import {
 	View
 } from 'react-native'
 import styles from './styles'
+const urlBase = 'https://api.github.com/users/';
 
 class Feed extends Component {
 	constructor(props) {
@@ -15,18 +16,41 @@ class Feed extends Component {
 			rowHasChanged: (r1, r2) => r1 !== r2
 		})
 		this.state = {
-			dataSource: ds.cloneWithRows(['a', 'b', 'c'])
+			dataSource: ds
 		}
 	}
+
+	componentDidMount() {
+		this.fetchFeed();
+	}
+
+	fetchFeed() {
+		require('./AuthenticationManager').getAuthInfo((error, result) => {
+			var url = urlBase + result.user.login + '/received_events';
+			fetch(url, {
+				headers: result.header
+			})
+			.then((response) => response.json())
+			.then((responseData) => {
+				var feedItems = responseData.filter((ev) => ev.type == 'PushEvent');
+				this.setState({
+					dataSource: this.state.dataSource.cloneWithRows(feedItems)
+				});
+			})
+		})
+	}
+
 	renderRow(rowData) {
 		return <Text style = {{
 				color: 'black',
-				backgroundColor: '#fff'
+				backgroundColor: '#fff',
+				alignSelf: 'center'
 			}}
 		>
-			{ rowData }
+			{ rowData.actor.login }
 		</Text>
 	}
+
 	render(){
 		return(
 			<View 
