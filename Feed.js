@@ -5,8 +5,9 @@ import {
 	Text,
 	Image,
 	View
-} from 'react-native'
-import styles from './styles'
+} from 'react-native';
+import styles from './styles';
+import AuthenticationManager from './AuthenticationManager';
 const urlBase = 'https://api.github.com/users/';
 
 class Feed extends Component {
@@ -25,30 +26,32 @@ class Feed extends Component {
 	}
 
 	fetchFeed() {
-		require('./AuthenticationManager').getAuthInfo((error, result) => {
+		AuthenticationManager.getAuthInfo((error, result) => {
 			var url = urlBase + result.user.login + '/received_events';
 			fetch(url, {
 				headers: result.header
 			})
 			.then((response) => response.json())
 			.then((responseData) => {
-				var feedItems = responseData.filter((ev) => ev.type == 'PushEvent');
 				this.setState({
-					dataSource: this.state.dataSource.cloneWithRows(feedItems)
+					dataSource: this.state.dataSource.cloneWithRows(responseData)
 				});
 			})
 		})
 	}
 
 	renderRow(rowData) {
-		return <Text style = {{
-				color: 'black',
-				backgroundColor: '#fff',
-				alignSelf: 'center'
-			}}
-		>
-			{ rowData.actor.login }
-		</Text>
+		return( 
+			<Text style = {{
+					color: 'black',
+					backgroundColor: '#fff',
+					alignSelf: 'center'
+				}}
+			>
+				id: { rowData.id + ', ' + rowData.actor.login + '\n'}
+				{ rowData.type + ', ' + rowData.repo.name }
+			</Text>
+		);
 	}
 
 	render(){
