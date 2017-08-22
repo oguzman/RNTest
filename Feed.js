@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
+import Moment from 'moment';
 const urlBase = 'https://api.github.com/users/';
 
 class Feed extends Component {
@@ -57,9 +58,9 @@ class Feed extends Component {
 				}}
 			/>
 			<Text style = {{ marginLeft: 10 }}>
-				{ rowData.actor.login + '\n' +
-				'Repository: ' + rowData.repo.name + '\n' +
-				'Event: ' + rowData.type }
+				{ Moment(rowData.created_at).fromNow() + '\n' +
+				rowData.repo.name + '\n' +
+				rowData.type }
 			</Text>
 			</View>
 		);
