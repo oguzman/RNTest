@@ -11,6 +11,7 @@ import {
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
 import Moment from 'moment';
+import Payload from './Payload'
 const urlBase = 'https://api.github.com/users/';
 
 class Feed extends Component {
@@ -26,7 +27,10 @@ class Feed extends Component {
 	}
 
 	pressRow(data) {
-		console.log(data);
+		this.props.navigator.push({
+			title: 'Payload details',
+			component: Payload
+		})
 	}
 
 	componentDidMount() {

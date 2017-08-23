@@ -24,10 +24,11 @@ class Payload extends Component {
 
 	render(){
 		return(
-			<View>
+			<View style = { styles.payloadView } >
+				<Text> Hello </Text>
 			</View>
 		);
 	}
 }
 
-module.exports = Feed;
+module.exports = Payload;
