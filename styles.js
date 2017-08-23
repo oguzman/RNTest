@@ -22,6 +22,13 @@ export default StyleSheet.create({
     paddingTop: 64,
     paddingBottom: 50
   },
+  payloadView: {
+    backgroundColor: '#F5FCFF',
+    flex: 1,
+    paddingTop: 80,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
   centerContent: {
     alignItems: 'center',
     justifyContent: 'center',
