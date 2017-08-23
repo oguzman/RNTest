@@ -63,8 +63,8 @@ class Recent extends Component {
 			textCell = 
 				<Text style = {{ marginLeft: 10 }}>
 					{ Moment(rowData.created_at).fromNow() + '\n' +
-					rowData.repo.name  + ' pushed to\n' +
-					rowData.payload.ref.replace('refs/heads/', '') }
+					'pushed to' + rowData.payload.ref.replace('refs/heads/', '') + ' at\n' +
+					rowData.repo.name }
 				</Text>;
 		} else {
 			textCell = 
