@@ -18,14 +18,25 @@ class Payload extends Component {
 			rowHasChanged: (r1, r2) => r1 !== r2
 		})
 		this.state = {
-			dataSource: ds
+			dataSource: ds,
+			pushData: props.pushData
 		}
 	}
 
 	render(){
 		return(
 			<View style = { styles.payloadView } >
-				<Text> Hello </Text>
+				<Image
+					source = {{ uri: this.state.pushData.actor.avatar_url }}
+					style = {{
+						height: 120,
+						width: 120,
+						borderRadius: 60
+					}}
+				/>
+				<Text>
+					{ this.state.pushData.actor.login }
+				</Text>
 			</View>
 		);
 	}

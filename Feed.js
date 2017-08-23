@@ -29,7 +29,10 @@ class Feed extends Component {
 	pressRow(data) {
 		this.props.navigator.push({
 			title: 'Payload details',
-			component: Payload
+			component: Payload,
+			passProps: {
+				pushData: data
+			}
 		})
 	}
 
