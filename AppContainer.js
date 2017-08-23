@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import {
 	Text,
 	View,
-	TabBarIOS
+	TabBarIOS,
+      NavigatorIOS
 } from 'react-native';
 import styles from './styles'
 import Feed from './Feed'
@@ -25,7 +26,15 @@ class AppContainer extends Component {
       			onPress = {() => this.setState({ selectedTab: 'favorites' })}
       			systemIcon = 'favorites'
       	>
-      	 <Feed />
+          <NavigatorIOS
+            style = {{
+              flex: 1
+            }}
+            initialRoute = {{
+              component: Feed,
+              title: 'feed'
+            }}
+          />
       	</TabBarIOS.Item>
       	<TabBarIOS.Item
       			title = 'Most Viewed'
