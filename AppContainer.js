@@ -5,7 +5,7 @@ import {
 	Text,
 	View,
 	TabBarIOS,
-      NavigatorIOS
+  NavigatorIOS
 } from 'react-native';
 import styles from './styles'
 import Feed from './Feed'
@@ -32,7 +32,7 @@ class AppContainer extends Component {
             }}
             initialRoute = {{
               component: Feed,
-              title: 'feed'
+              title: 'Feed'
             }}
           />
       	</TabBarIOS.Item>
