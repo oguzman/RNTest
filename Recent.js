@@ -11,10 +11,10 @@ import {
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
 import Moment from 'moment';
-import Payload from './Payload'
+import EventDetails from './EventDetails'
 const urlBase = 'https://api.github.com/users/';
 
-class Feed extends Component {
+class Recent extends Component {
 	constructor(props) {
 		super(props);
 		var ds = new ListView.DataSource({
@@ -28,8 +28,8 @@ class Feed extends Component {
 
 	pressRow(data) {
 		this.props.navigator.push({
-			title: 'Payload details',
-			component: Payload,
+			title: 'Event details',
+			component: EventDetails,
 			passProps: {
 				pushData: data
 			}
@@ -37,10 +37,10 @@ class Feed extends Component {
 	}
 
 	componentDidMount() {
-		this.fetchFeed();
+		this.fetchData();
 	}
 
-	fetchFeed() {
+	fetchData() {
 		AuthenticationManager.getAuthInfo((error, result) => {
 			var url = urlBase + result.user.login + '/received_events';
 			fetch(url, {
@@ -48,6 +48,7 @@ class Feed extends Component {
 			})
 			.then((response) => response.json())
 			.then((responseData) => {
+				console.log(responseData)
 				this.setState({
 					dataSource: this.state.dataSource.cloneWithRows(responseData),
 					showProgress: false
@@ -57,6 +58,22 @@ class Feed extends Component {
 	}
 
 	renderRow(rowData) {
+		var textCell = null;
+		if(rowData.type == 'PushEvent') {
+			textCell = 
+				<Text style = {{ marginLeft: 10 }}>
+					{ Moment(rowData.created_at).fromNow() + '\n' +
+					rowData.repo.name  + ' pushed to\n' +
+					rowData.payload.ref.replace('refs/heads/', '') }
+				</Text>;
+		} else {
+			textCell = 
+			<Text style = {{ marginLeft: 10 }} >
+				{ Moment(rowData.created_at).fromNow() + '\n' +
+					rowData.repo.name + '\n' +
+					rowData.type }
+			</Text>
+		}
 		return(
 			<TouchableHighlight
 				onPress = { () => this.pressRow(rowData) }
@@ -73,11 +90,7 @@ class Feed extends Component {
 							borderRadius: 18
 						}}
 					/>
-					<Text style = {{ marginLeft: 10 }}>
-						{ Moment(rowData.created_at).fromNow() + '\n' +
-						rowData.repo.name + '\n' +
-						rowData.type }
-					</Text>
+					{ textCell }
 				</View>
 			</TouchableHighlight>
 		);
@@ -108,4 +121,4 @@ class Feed extends Component {
 	}
 }
 
-module.exports = Feed;
+module.exports = Recent;

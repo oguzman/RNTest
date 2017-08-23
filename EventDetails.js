@@ -11,7 +11,7 @@ import AuthenticationManager from './AuthenticationManager';
 import Moment from 'moment';
 const urlBase = 'https://api.github.com/users/';
 
-class Payload extends Component {
+class EventDetails extends Component {
 	constructor(props) {
 		super(props);
 		var ds = new ListView.DataSource({
@@ -34,7 +34,7 @@ class Payload extends Component {
 						borderRadius: 60
 					}}
 				/>
-				<Text>
+				<Text style = { styles.payloadUsernameText }>
 					{ this.state.pushData.actor.login }
 				</Text>
 			</View>
@@ -42,4 +42,4 @@ class Payload extends Component {
 	}
 }
 
-module.exports = Payload;
+module.exports = EventDetails;

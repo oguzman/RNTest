@@ -8,31 +8,31 @@ import {
   NavigatorIOS
 } from 'react-native';
 import styles from './styles'
-import Feed from './Feed'
+import Recent from './Recent'
 
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selectedTab: 'favorites'
+			selectedTab: 'recents'
 		}
 	}
 	render() {
 		return(
       <TabBarIOS>
       	<TabBarIOS.Item
-      			title = 'Favorites'
-      			selected = { this.state.selectedTab == 'favorites' }
-      			onPress = {() => this.setState({ selectedTab: 'favorites' })}
-      			systemIcon = 'favorites'
+      			title = 'Recents'
+      			selected = { this.state.selectedTab == 'recents' }
+      			onPress = {() => this.setState({ selectedTab: 'recents' })}
+      			systemIcon = 'recents'
       	>
           <NavigatorIOS
             style = {{
               flex: 1
             }}
             initialRoute = {{
-              component: Feed,
-              title: 'Feed'
+              component: Recent,
+              title: 'Recent'
             }}
           />
       	</TabBarIOS.Item>

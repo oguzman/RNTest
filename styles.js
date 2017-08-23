@@ -22,6 +22,9 @@ export default StyleSheet.create({
     paddingTop: 64,
     paddingBottom: 50
   },
+  boldText: {
+    fontWeight: 'bold'
+  },
   payloadView: {
     backgroundColor: '#F5FCFF',
     flex: 1,
@@ -81,5 +84,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderColor: '#D7D7D7',
     borderBottomWidth: 1,
+  },
+  payloadUsernameText: {
+    fontSize: 15,
+    marginTop: 10,
+    fontWeight: 'bold'
   }
 });
