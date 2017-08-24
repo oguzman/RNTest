@@ -32,10 +32,13 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
-  centerContent: {
+  centerContentInScreen: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
+  },
+  alignCenter: {
+    alignItems: 'center'
   },
   headerText: {
     fontSize: 30,

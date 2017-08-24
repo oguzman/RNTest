@@ -42,7 +42,7 @@ class AppContainer extends Component {
       			onPress = {() => this.setState({ selectedTab: 'most-viewed' })}
       			systemIcon = 'most-viewed'
       	>
-      	<View style = { styles.centerContent }>
+        <View style = { styles.centerContentInScreen }>
       		<Text style = { styles.headerText }>
       			Most Viewed
       		</Text>

@@ -24,6 +24,31 @@ class EventDetails extends Component {
 	}
 
 	render(){
+		var event = null
+		if(this.state.pushData.type == 'PushEvent') {
+			event = (
+				<View style = { styles.alignCenter }>
+					<Text style = {{ paddingTop: 10 }} >
+						pushed to { this.state.pushData.payload.ref.replace('refs/heads/', '') + ' at' }
+					</Text>
+					<Text>
+						{ this.state.pushData.repo.name }
+					</Text>
+				</View>
+			);
+		} else {
+			event = (
+				<View style = { styles.alignCenter }>
+					<Text style = {{ paddingTop: 10 }} >
+						{ this.state.pushData.type + ' at' }
+					</Text>
+					<Text>
+						{ this.state.pushData.repo.name }
+					</Text>
+				</View>
+			);
+		}
+
 		return(
 			<View style = { styles.payloadView } >
 				<Image
@@ -37,6 +62,7 @@ class EventDetails extends Component {
 				<Text style = { styles.payloadUsernameText }>
 					{ this.state.pushData.actor.login }
 				</Text>
+				{ event }
 			</View>
 		);
 	}
