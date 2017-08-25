@@ -19,7 +19,6 @@ class RNTest extends Component {
   constructor(props) {
     super(props);
     this.state = { isLoggedIn: false };
-    console.log(this.state)
   }
   render() {
     if(this.state.isLoggedIn) {

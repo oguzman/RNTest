@@ -19,13 +19,30 @@ export default StyleSheet.create({
   listViewBackground: {
     backgroundColor: '#F5FCFF',
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 64,
     paddingBottom: 50
   },
-  centerContent: {
+  simpleListView: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  boldText: {
+    fontWeight: 'bold'
+  },
+  payloadView: {
+    backgroundColor: '#F5FCFF',
+    flex: 1,
+    paddingTop: 80,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+  centerContentInScreen: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
+  },
+  alignCenter: {
+    alignItems: 'center'
   },
   headerText: {
     fontSize: 30,
@@ -73,6 +90,12 @@ export default StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     borderColor: '#D7D7D7',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5
+  },
+  payloadUsernameText: {
+    fontSize: 15,
+    marginTop: 10,
+    fontWeight: 'bold'
   }
 });

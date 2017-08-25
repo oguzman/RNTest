@@ -4,36 +4,45 @@ import React, { Component } from 'react';
 import {
 	Text,
 	View,
-	TabBarIOS
+	TabBarIOS,
+  NavigatorIOS
 } from 'react-native';
 import styles from './styles'
-import Feed from './Feed'
+import Recent from './Recent'
 
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selectedTab: 'favorites'
+			selectedTab: 'recents'
 		}
 	}
 	render() {
 		return(
       <TabBarIOS>
       	<TabBarIOS.Item
-      			title = 'Favorites'
-      			selected = { this.state.selectedTab == 'favorites' }
-      			onPress = {() => this.setState({ selectedTab: 'favorites' })}
-      			systemIcon = 'favorites'
+      			title = 'Recents'
+      			selected = { this.state.selectedTab == 'recents' }
+      			onPress = {() => this.setState({ selectedTab: 'recents' })}
+      			systemIcon = 'recents'
       	>
-      	 <Feed />
+          <NavigatorIOS
+            style = {{
+              flex: 1
+            }}
+            initialRoute = {{
+              component: Recent,
+              title: 'Recent'
+            }}
+          />
       	</TabBarIOS.Item>
       	<TabBarIOS.Item
-      			title = 'Most Viewed'
-      			selected = { this.state.selectedTab == 'most-viewed' }
-      			onPress = {() => this.setState({ selectedTab: 'most-viewed' })}
-      			systemIcon = 'most-viewed'
+      			title = 'Search'
+      			selected = { this.state.selectedTab == 'search' }
+      			onPress = {() => this.setState({ selectedTab: 'search' })}
+      			systemIcon = 'search'
       	>
-      	<View style = { styles.centerContent }>
+        <View style = { styles.centerContentInScreen }>
       		<Text style = { styles.headerText }>
       			Most Viewed
       		</Text>

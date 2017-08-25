@@ -5,14 +5,16 @@ import {
 	Text,
 	Image,
 	View,
-	ActivityIndicator
+	ActivityIndicator,
+	TouchableHighlight
 } from 'react-native';
 import styles from './styles';
 import AuthenticationManager from './AuthenticationManager';
 import Moment from 'moment';
+import EventDetails from './EventDetails'
 const urlBase = 'https://api.github.com/users/';
 
-class Feed extends Component {
+class Recent extends Component {
 	constructor(props) {
 		super(props);
 		var ds = new ListView.DataSource({
@@ -24,11 +26,21 @@ class Feed extends Component {
 		}
 	}
 
-	componentDidMount() {
-		this.fetchFeed();
+	pressRow(data) {
+		this.props.navigator.push({
+			title: 'Event details',
+			component: EventDetails,
+			passProps: {
+				pushData: data
+			}
+		})
 	}
 
-	fetchFeed() {
+	componentDidMount() {
+		this.fetchData();
+	}
+
+	fetchData() {
 		AuthenticationManager.getAuthInfo((error, result) => {
 			var url = urlBase + result.user.login + '/received_events';
 			fetch(url, {
@@ -45,24 +57,41 @@ class Feed extends Component {
 	}
 
 	renderRow(rowData) {
-		return( 
-			<View
-				style = { styles.tableCell }
-			>
-			<Image
-				source = {{ uri: rowData.actor.avatar_url }}
-				style = {{
-					height: 36,
-					width: 36,
-					borderRadius: 18
-				}}
-			/>
-			<Text style = {{ marginLeft: 10 }}>
+		var textCell = null;
+		if(rowData.type == 'PushEvent') {
+			textCell = 
+				<Text style = {{ marginLeft: 10 }}>
+					{ Moment(rowData.created_at).fromNow() + '\n' +
+					'pushed to' + rowData.payload.ref.replace('refs/heads/', '') + ' at\n' +
+					rowData.repo.name }
+				</Text>;
+		} else {
+			textCell = 
+			<Text style = {{ marginLeft: 10 }} >
 				{ Moment(rowData.created_at).fromNow() + '\n' +
-				rowData.repo.name + '\n' +
-				rowData.type }
+					rowData.repo.name + '\n' +
+					rowData.type }
 			</Text>
-			</View>
+		}
+		return(
+			<TouchableHighlight
+				onPress = { () => this.pressRow(rowData) }
+				underlayColor = '#ddd'
+			>
+				<View
+					style = { styles.tableCell }
+				>
+					<Image
+						source = {{ uri: rowData.actor.avatar_url }}
+						style = {{
+							height: 36,
+							width: 36,
+							borderRadius: 18
+						}}
+					/>
+					{ textCell }
+				</View>
+			</TouchableHighlight>
 		);
 	}
 
@@ -83,7 +112,7 @@ class Feed extends Component {
 				<View style = { styles.listViewBackground } >
 					<ListView
 						dataSource = { this.state.dataSource }
-						renderRow = { this.renderRow }
+						renderRow = { (rowData) => this.renderRow(rowData) }
 					/>
 				</View>
 			);
@@ -91,4 +120,4 @@ class Feed extends Component {
 	}
 }
 
-module.exports = Feed;
+module.exports = Recent;
