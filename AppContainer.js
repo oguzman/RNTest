@@ -7,8 +7,9 @@ import {
 	TabBarIOS,
   NavigatorIOS
 } from 'react-native';
-import styles from './styles'
-import Recent from './Recent'
+import styles from './styles';
+import Recent from './Recent';
+import Search from './Search';
 
 class AppContainer extends Component {
 	constructor(props) {
@@ -42,11 +43,15 @@ class AppContainer extends Component {
       			onPress = {() => this.setState({ selectedTab: 'search' })}
       			systemIcon = 'search'
       	>
-        <View style = { styles.centerContentInScreen }>
-      		<Text style = { styles.headerText }>
-      			Most Viewed
-      		</Text>
-      	</View>
+        <NavigatorIOS
+          style = {{
+            flex: 1
+          }}
+          initialRoute = {{
+            component: Search,
+            title: 'Search'
+          }}
+        />
       	</TabBarIOS.Item>
       </TabBarIOS>
     );
