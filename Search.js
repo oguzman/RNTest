@@ -18,16 +18,32 @@ class Search extends Component {
 		})
 	}
 
+	doSearch(){
+		console.log(this.state.searchTerm)
+	}
 	render() {
 		return(
 			<View style = { styles.containersView } >
-				<Text>
-					Search
-				</Text>
-				<TextInput
-					placeholder = 'Search...'
-					style = { styles.blueInputs }
-				/>
+				<View style = { styles.centerContentInScreen } >
+					<Text style = { styles.boldText } >
+						Search terms:
+					</Text>
+					<TextInput
+						placeholder = 'Search...'
+						style = { styles.blueInputs }
+						onChangeText = { (text) => this.setState({ searchTerm: text })}
+					/>
+					<TouchableHighlight
+						onPress = { () => this.doSearch() }
+						style = { styles.blueButton }
+						activeOpacity = { 75 / 100 }
+						underlayColor = { "rgb(210,210,210)" }
+	         >
+						<Text style = { styles.whiteText } >
+							Search
+						</Text>
+					</TouchableHighlight>
+				</View>
 			</View>
 		);
 	}
