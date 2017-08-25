@@ -37,10 +37,10 @@ class AppContainer extends Component {
           />
       	</TabBarIOS.Item>
       	<TabBarIOS.Item
-      			title = 'Most Viewed'
-      			selected = { this.state.selectedTab == 'most-viewed' }
-      			onPress = {() => this.setState({ selectedTab: 'most-viewed' })}
-      			systemIcon = 'most-viewed'
+      			title = 'Search'
+      			selected = { this.state.selectedTab == 'search' }
+      			onPress = {() => this.setState({ selectedTab: 'search' })}
+      			systemIcon = 'search'
       	>
         <View style = { styles.centerContentInScreen }>
       		<Text style = { styles.headerText }>
