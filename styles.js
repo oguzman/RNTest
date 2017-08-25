@@ -16,7 +16,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 20
   },
-  listViewBackground: {
+  containersView: {
     backgroundColor: '#F5FCFF',
     flex: 1,
     paddingTop: 64,

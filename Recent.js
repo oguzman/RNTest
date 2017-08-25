@@ -109,7 +109,7 @@ class Recent extends Component {
 			);
 		} else {
 			return(
-				<View style = { styles.listViewBackground } >
+				<View style = { styles.containersView } >
 					<ListView
 						dataSource = { this.state.dataSource }
 						renderRow = { (rowData) => this.renderRow(rowData) }

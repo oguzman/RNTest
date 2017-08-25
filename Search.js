@@ -20,7 +20,7 @@ class Search extends Component {
 
 	render() {
 		return(
-			<View style = { styles.generalView } >
+			<View style = { styles.containersView } >
 				<Text>
 					Search
 				</Text>
