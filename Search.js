@@ -9,6 +9,7 @@ import {
 	ActivityIndicator
 } from 'react-native';
 import styles from './styles'
+import SearchResults from './SearchResults';
 
 class Search extends Component {
 	constructor(props){
@@ -19,7 +20,14 @@ class Search extends Component {
 	}
 
 	doSearch(){
-		console.log(this.state.searchTerm)
+		this.props.navigator.push({
+			title: 'Search Results',
+			component: SearchResults,
+			passProps: {
+				pushData: this.state.searchTerm
+			}
+
+		})
 	}
 	render() {
 		return(
