@@ -23,17 +23,44 @@ class EventDetails extends Component {
 		}
 	}
 
+	componentDidMount() {
+		if(this.state.pushData.type == 'PushEvent') {
+			this.setState({
+				dataSource: this.state.dataSource.cloneWithRows(this.state.pushData.payload.commits)
+			})
+		}
+	}
+
+	renderRow(rowData) {
+		return (
+			<View style = { styles.tableCell } >
+				<Text>
+					<Text style = { styles.boldText } >{ rowData.sha.substring(0, 6) }</Text> - { rowData.message }
+				</Text>
+			</View>
+		);
+	}
 	render(){
 		var event = null
 		if(this.state.pushData.type == 'PushEvent') {
 			event = (
 				<View style = { styles.alignCenter }>
 					<Text style = {{ paddingTop: 10 }} >
-						pushed to { this.state.pushData.payload.ref.replace('refs/heads/', '') + ' at' }
+						pushed to <Text style = { styles.boldText } >{ this.state.pushData.payload.ref.replace('refs/heads/', '') }</Text> at
 					</Text>
 					<Text>
 						{ this.state.pushData.repo.name }
 					</Text>
+					<Text style = { styles.boldText }>
+						{ this.state.pushData.payload.commits.length } commits
+					</Text>
+					<ListView
+						contentInset = {{
+
+						}}
+						dataSource = { this.state.dataSource }
+						renderRow = { (rowData) => this.renderRow(rowData) }
+					/>
 				</View>
 			);
 		} else {
@@ -48,7 +75,6 @@ class EventDetails extends Component {
 				</View>
 			);
 		}
-
 		return(
 			<View style = { styles.payloadView } >
 				<Image

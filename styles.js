@@ -22,6 +22,10 @@ export default StyleSheet.create({
     paddingTop: 64,
     paddingBottom: 50
   },
+  simpleListView: {
+    flex: 1,
+    justifyContent: 'center'
+  },
   boldText: {
     fontWeight: 'bold'
   },
@@ -86,7 +90,8 @@ export default StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     borderColor: '#D7D7D7',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5
   },
   payloadUsernameText: {
     fontSize: 15,
